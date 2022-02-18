@@ -1,7 +1,7 @@
 import React from "react";
 import Item from "./Item.js";
 
-export default function ItemList(props) {
+export default function ItemsList(props) {
   return (
     <ul className="ui-list">
       {props.items.map((it, index) => (

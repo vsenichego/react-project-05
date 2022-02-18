@@ -1,14 +1,27 @@
-import React, { useState } from "react";
-import ItemList from "./components/ItemList.js";
+import React, { useState, useEffect } from "react";
+import ItemsList from "./components/ItemsList.js";
 import AddItem from "./components/AddItem.js";
 import uuid from "react-uuid";
 
 export default function Shop() {
-  const [items, setItems] = useState([]);
+
+  const [items, setItems] = useState(() => JSON.parse(localStorage.getItem("items")))
   const [item, setItem] = useState({});
   const [name, setName] = useState("");
   const [desc, setDesc] = useState("");
   const [valid, setValid] = useState(true);
+
+  useEffect(() => {
+    localStorage.setItem("items", JSON.stringify(items));
+  }, [items]);
+
+  useEffect(() => {
+    if (items.length === 0) {
+      document.title = `Товары отсутствуют`;
+    } else {
+      document.title = `${items.length} товаров`;
+    }
+  })
 
   function handleFormSubmit(event) {
     event.preventDefault();
@@ -44,6 +57,8 @@ export default function Shop() {
     setDesc(event.target.value);
   }
 
+ 
+
   return (
     <>
       <AddItem
@@ -55,14 +70,14 @@ export default function Shop() {
         onNameChange={handleNameChange}
         onDescChange={handleDescChange}
       />
-
-      {items.length === 0 && (
+ 
+     {items.length === 0 && (
         <div>
           <p className="ui-title">Добавьте первый товар</p>
         </div>
       )}
 
-      <ItemList items={items} onRemoveButton={handleRemoveButton} />
+      <ItemsList items={items} onRemoveButton={handleRemoveButton} />
     </>
   );
 }
