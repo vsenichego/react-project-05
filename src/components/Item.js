@@ -1,4 +1,55 @@
 import React, { useState } from "react";
+import styled from "styled-components"
+
+const WrapperDiv = styled.div`
+
+  div:nth-child(1) {
+    margin-left: 10px;
+  }
+
+  div:nth-child(2) {
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px;
+  }
+
+  div>h2 {
+    font-size: 30px;
+  }
+
+  h3 {
+    font-size: 16px;
+  }
+
+  button {
+    background-color: white;
+    color: black;
+    border: 1px solid var(--light-gray);
+    padding: 5px 20px;
+    min-width: 50px;
+    font-size: 16px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: opacity 200ms ease-out;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+
+  button:active {
+    box-shadow: 0 0px rgba(0, 0, 0, 0.2);
+    transform: translateY(1px);
+  }
+
+  button:hover {
+    opacity: 0.8;
+  }
+
+  button:disabled {
+    opacity: 0.4;
+    cursor: disabled;
+  }
+`;
 
 export default function Item(props) {
   const [total, setTotal] = useState(0);
@@ -20,24 +71,23 @@ export default function Item(props) {
   }
 
   return (
-    <div className="item">
-      <div className="item-info">
-        <h2 className="item-title">{info.name}</h2>
-        <p className="item-desc">{info.desc}</p>
+    <WrapperDiv>
+      <div>
+        <h2>{info.name}</h2>
+        <p>{info.desc}</p>
       </div>
-      <div className="item-quantity">
+      <div>
         <button
-          className="item-button"
           disabled={total === 0}
           onClick={handleRemoveClick}
         >
           -
         </button>
-        <h3 className="item-total">{total ? total : ""}</h3>
-        <button className="item-button" onClick={handleAddClick}>
+        <h3>{total ? total : ""}</h3>
+        <button onClick={handleAddClick}>
           +
         </button>
       </div>
-    </div>
+    </WrapperDiv>
   );
 }

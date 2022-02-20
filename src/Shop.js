@@ -5,7 +5,7 @@ import uuid from "react-uuid";
 
 export default function Shop() {
 
-  const [items, setItems] = useState(() => JSON.parse(localStorage.getItem("items")))
+  const [items, setItems] = useState(() => JSON.parse(localStorage.getItem("items")));
   const [item, setItem] = useState({});
   const [name, setName] = useState("");
   const [desc, setDesc] = useState("");
@@ -21,7 +21,7 @@ export default function Shop() {
     } else {
       document.title = `${items.length} товаров`;
     }
-  })
+  });
 
   function handleFormSubmit(event) {
     event.preventDefault();
@@ -57,8 +57,6 @@ export default function Shop() {
     setDesc(event.target.value);
   }
 
- 
-
   return (
     <>
       <AddItem
@@ -70,13 +68,7 @@ export default function Shop() {
         onNameChange={handleNameChange}
         onDescChange={handleDescChange}
       />
- 
-     {items.length === 0 && (
-        <div>
-          <p className="ui-title">Добавьте первый товар</p>
-        </div>
-      )}
-
+     <div>{items.length === 0 && <p>Добавьте первый товар</p>}</div>
       <ItemsList items={items} onRemoveButton={handleRemoveButton} />
     </>
   );

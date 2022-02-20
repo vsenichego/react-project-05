@@ -37,6 +37,7 @@
     ]
   },
   "devDependencies": {
+    "babel-plugin-styled-components": "^2.0.3",
     "nodemon": "^2.0.15",
     "react-uuid": "^1.0.2"
   }
