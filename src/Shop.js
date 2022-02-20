@@ -44,8 +44,8 @@ export default function Shop() {
     });
   }
 
-  function handleRemoveButton() {
-    setItems(items.slice(1));
+  function handleRemoveButton(id) {
+    setItems(items.filter((item) => item.id !== id));
     setValid(true);
   }
 

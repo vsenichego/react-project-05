@@ -48,10 +48,10 @@ export default function ItemsList(props) {
   return (
     <WrapperDiv>
     <ul>
-      {props.items.map((it, index) => (
-        <li key={index}>
-          <Item info={props.items[index]} />
-          <button onClick={props.onRemoveButton}>
+      {props.items.map((item) => (
+        <li key={item.id}>
+          <Item info={item} />
+          <button onClick={() => props.onRemoveButton(item.id)}>
             Удалить
           </button>
         </li>
