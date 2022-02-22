@@ -15,21 +15,21 @@ export default function AddItem(props) {
           onChange={props.onNameChange}
         />
       </div>
-      <div>
+      <StyledTextfield>
         <label htmlFor="desc">Описание: </label>
-        <StyledTextfield
+        <input
           type="text"
           placeholder="Описание товара"
           id="desc"
           value={props.desc}
           onChange={props.onDescChange}
         />
-      </div>
-      <div className="form-footer">
+      </StyledTextfield>
+      <div>
         {props.valid ? (
-          <div className="validation"></div>
+          <div></div>
         ) : (
-          <div className="validation">Заполните Название и Описание</div>
+          <div>Заполните Название и Описание</div>
         )}
         <StyledButtonAdd
           type="submit"
