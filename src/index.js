@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "react-dom";
-import Shop from "./Shop.js";
-import styled, {createGlobalStyle} from "styled-components"
+import Shop from "./Shop";
+import {createGlobalStyle} from "styled-components"
 
 const Global = createGlobalStyle`
   :root {

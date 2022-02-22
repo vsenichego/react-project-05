@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import ItemsList from "./components/ItemsList.js";
-import AddItem from "./components/AddItem.js";
+import ItemsList from "./components/ItemsList";
+import AddItem from "./components/AddItem";
 import uuid from "react-uuid";
 
 export default function Shop() {
@@ -33,6 +33,19 @@ export default function Shop() {
     } else {
       setItems([...items, item]);
       setValid(true);
+    }
+
+    const requestOptions = {
+      method: "POST",
+      body: JSON.stringify({ name: name, desc: desc }),
+      headers: { "Content-type": "application/json" }
+    };
+
+    if (name && desc) {
+      fetch("https://covid-shop-mcs.herokuapp.com", requestOptions)
+        .then((response) => response.json())
+        .then((data) => console.log(data))
+        .catch((error) => console.error(error));
     }
   }
 

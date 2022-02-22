@@ -17,3 +17,6 @@
 - Рефакторинг
 - useEffect
 - localStorage
+- Styled-Components
+- Fetch API
+- POST-запросы
