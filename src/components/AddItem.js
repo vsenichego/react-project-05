@@ -3,7 +3,6 @@ import { StyledButtonAdd } from "../styled-components/StyledButtonAdd"
 import { StyledTextfield } from "../styled-components/StyledTextfield";
 
 export default function AddItem(props) {
-
   return (
     <form onSubmit={props.onFormSubmit}>
       <div>

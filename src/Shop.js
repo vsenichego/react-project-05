@@ -4,7 +4,6 @@ import AddItem from "./components/AddItem";
 import uuid from "react-uuid";
 
 export default function Shop() {
-
   const [items, setItems] = useState(() => JSON.parse(localStorage.getItem("items")));
   const [item, setItem] = useState({});
   const [name, setName] = useState("");
