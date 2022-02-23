@@ -5,16 +5,16 @@ import { StyledTextfield } from "../styled-components/StyledTextfield";
 export default function AddItem(props) {
   return (
     <form onSubmit={props.onFormSubmit}>
-      <div>
+      <StyledTextfield>
         <label htmlFor="name">Название: </label>
-        <StyledTextfield
+        <input
           type="text"
           placeholder="Название товара"
           id="name"
           value={props.name}
           onChange={props.onNameChange}
         />
-      </div>
+      </StyledTextfield>
       <StyledTextfield>
         <label htmlFor="desc">Описание: </label>
         <input
